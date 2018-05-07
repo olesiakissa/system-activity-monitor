@@ -5,6 +5,10 @@ import model.ProcessInfo;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Implements {@code Iterator} object creation and returns the instance
+ * of the concrete process iterator.
+ */
 public class ProcessAggregate implements Aggregate {
 
     List<ProcessInfo> processList = new ArrayList<>();
@@ -14,7 +18,7 @@ public class ProcessAggregate implements Aggregate {
         return new ProcessIterator();
     }
 
-    private class ProcessIterator implements Iterator {
+    private class ProcessIterator implements Iterator<ProcessInfo> {
 
         int index = 0;
 
@@ -24,8 +28,11 @@ public class ProcessAggregate implements Aggregate {
         }
 
         @Override
-        public Object next() {
-            return processList.get(index++);
+        public ProcessInfo next() {
+            if (this.hasNext()) {
+                return processList.get(index++);
+            }
+            return null;
         }
 
     }

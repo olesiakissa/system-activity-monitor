@@ -14,18 +14,15 @@ import javax.validation.constraints.Positive;
 @ToString
 public class ProcessInfo {
 
-    @Positive @Min(1)
-    private int pid;
-
-    @Positive @Min(1)
-    private int parentId;
-
-    @NotBlank
-    private String command;
-
     @NotBlank
     private String name;
 
+    @Positive @Min(1)
+    private int pid;
+
     @NotBlank
-    private String owner;
+    private String sessionName;
+
+    @Positive
+    private long memory;
 }

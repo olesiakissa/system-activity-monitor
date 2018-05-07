@@ -1,9 +1,9 @@
 package system;
 
 /**
- * An iterator over a collection.
+ * An iterator over a collection for accessing and traversing elements.
  */
-public interface Iterator {
+public interface Iterator<ProcessInfo> {
 
     /**
      * @return {@code true} - if the collection has more elements
