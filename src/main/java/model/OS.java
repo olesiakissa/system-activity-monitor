@@ -9,7 +9,6 @@ import javax.validation.constraints.NotBlank;
  * This class represents an operating system.
  */
 @Getter
-@ToString
 public class OS {
     /**
      * Operating system name
@@ -40,5 +39,18 @@ public class OS {
         version      = System.getProperty("os.version");
         architecture = System.getProperty("os.arch");
         username     = System.getProperty("user.name");
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("\t\tNAME: ").append(name);
+        sb.append(System.lineSeparator());
+        sb.append("\t\tVERSION: ").append(version);
+        sb.append(System.lineSeparator());
+        sb.append("\t\tARCHITECTURE: ").append(architecture);
+        sb.append(System.lineSeparator());
+        sb.append("\t\tUSER: ").append(username);
+        return sb.toString();
     }
 }

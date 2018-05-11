@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class ProcessAggregate implements Aggregate {
 
-    List<ProcessInfo> processList = new ArrayList<>();
+    public static List<ProcessInfo> processList = new ArrayList<>();
 
     @Override
     public Iterator createIterator() {
