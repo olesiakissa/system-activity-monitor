@@ -1,12 +1,7 @@
 package system;
 
-import system.commands.Command;
-import system.commands.GetOSInfoCommand;
-import system.commands.GetStatisticsCommand;
-import system.commands.PrintRunningProcessesCommand;
-import system.commands.receivers.OSIndicator;
-import system.commands.receivers.ProcessPrinter;
-import system.commands.receivers.StatisticsCalculator;
+import system.commands.*;
+import system.commands.receivers.*;
 
 /**
  * Invoker class for commands.
@@ -16,16 +11,24 @@ public class InputAnalyzer {
 
     public void analyze(String input) {
         switch (input) {
-            case "tasklist":
+            case "pr -all":
                 command = new PrintRunningProcessesCommand(new ProcessPrinter());
                 command.execute();
                 break;
-            case "stats":
+/*            case "st":
                 command = new GetStatisticsCommand(new StatisticsCalculator());
                 command.execute();
-                break;
-            case "os":
+                break;*/
+            case "-os":
                 command = new GetOSInfoCommand(new OSIndicator());
+                command.execute();
+                break;
+            case "-cpu":
+                command = new GetCpuUsageCommand(new CPUIndicator());
+                command.execute();
+                break;
+            case "-mem":
+                command = new GetMemoryUsageCommand(new MemoryIndicator());
                 command.execute();
                 break;
             case "q":
