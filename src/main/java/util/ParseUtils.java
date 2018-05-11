@@ -34,4 +34,8 @@ public class ParseUtils {
         return Long.parseLong(toLong.toString());
     }
 
+    public static double bytesToMegabytes(long bytes) {
+        return bytes / (1024.0 * 1024.0);
+    }
+
 }
