@@ -10,15 +10,12 @@ public class InputAnalyzer {
     private Command command;
 
     public void analyze(String input) {
+
         switch (input) {
             case "pr -all":
                 command = new PrintRunningProcessesCommand(new ProcessPrinter());
                 command.execute();
                 break;
-/*            case "st":
-                command = new GetStatisticsCommand(new StatisticsCalculator());
-                command.execute();
-                break;*/
             case "-os":
                 command = new GetOSInfoCommand(new OSIndicator());
                 command.execute();
@@ -39,5 +36,6 @@ public class InputAnalyzer {
                 command.execute();
                 break;
         }
+        
     }
 }

@@ -10,8 +10,7 @@ public class App {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        Command command = new PrintAvailableCommandsCommand();
-        command.execute();
+        printAvailableCommands();
 
         String input;
         do {
@@ -20,6 +19,12 @@ public class App {
             analyzer.analyze(input);
         }  while (!input.equals("q"));
         scanner.close();
+    }
+
+    private static void printAvailableCommands() {
+        System.out.println("Please, enter a command from a list of available commands: ");
+        Command command = new PrintAvailableCommandsCommand();
+        command.execute();
     }
 
 }

@@ -7,6 +7,6 @@ import model.factory.products.SystemItem;
  */
 public interface SystemItemCreator extends Creator {
 
-    public SystemItem createItem();
+    SystemItem createItem();
 
 }

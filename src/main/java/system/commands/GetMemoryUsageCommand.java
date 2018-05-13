@@ -17,4 +17,5 @@ public class GetMemoryUsageCommand implements Command {
     public void execute() {
         this.indicator.displayInfo();
     }
+
 }

@@ -2,6 +2,9 @@ package system.commands;
 
 import system.commands.receivers.OSIndicator;
 
+/**
+ * Command for printing info about os architecture.
+ */
 public class GetOSInfoCommand implements Command {
 
     private OSIndicator osIndicator;
@@ -14,4 +17,5 @@ public class GetOSInfoCommand implements Command {
     public void execute() {
         this.osIndicator.displayInfo();
     }
+
 }

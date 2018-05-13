@@ -13,4 +13,5 @@ public class PrintAvailableCommandsCommand implements Command {
     public void execute() {
         this.commandsPrinter.readCommandsFile();
     }
+
 }

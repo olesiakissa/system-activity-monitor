@@ -12,4 +12,5 @@ public class IteratorCreator implements Creator {
         ProcessAggregate aggregate = new ProcessAggregate();
         return aggregate.createIterator();
     }
+
 }

@@ -6,6 +6,7 @@ import util.ParseUtils;
 import java.lang.management.ManagementFactory;
 
 public class MemoryIndicator implements Indicator {
+
     @Override
     public void displayInfo() {
         OperatingSystemMXBean osBean = ManagementFactory.getPlatformMXBean(
@@ -14,4 +15,5 @@ public class MemoryIndicator implements Indicator {
         System.out.printf("\tFree physical memory (in megabytes): %f\n", ParseUtils.bytesToMegabytes(osBean.getFreePhysicalMemorySize()));
         System.out.printf("\tAvailable virtual memory (in megabytes): %f\n", ParseUtils.bytesToMegabytes(osBean.getCommittedVirtualMemorySize()));
     }
+
 }
