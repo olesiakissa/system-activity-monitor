@@ -1,7 +1,6 @@
 package model;
 
 import lombok.Getter;
-import lombok.ToString;
 
 import javax.validation.constraints.NotBlank;
 
