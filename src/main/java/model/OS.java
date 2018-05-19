@@ -1,6 +1,7 @@
 package model;
 
 import lombok.Getter;
+import system.Constants;
 
 import javax.validation.constraints.NotBlank;
 
@@ -34,21 +35,21 @@ public class OS {
     private String username;
 
     public OS() {
-        name         = System.getProperty("os.name");
-        version      = System.getProperty("os.version");
-        architecture = System.getProperty("os.arch");
-        username     = System.getProperty("user.name");
+        name         = Constants.OS_NAME;
+        version      = Constants.OS_VERSION;
+        architecture = Constants.OS_ARCHITECTURE;
+        username     = Constants.USER_NAME;
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("\t\tNAME: ").append(name);
-        sb.append(System.lineSeparator());
+        sb.append(Constants.NEW_LINE);
         sb.append("\t\tVERSION: ").append(version);
-        sb.append(System.lineSeparator());
+        sb.append(Constants.NEW_LINE);
         sb.append("\t\tARCHITECTURE: ").append(architecture);
-        sb.append(System.lineSeparator());
+        sb.append(Constants.NEW_LINE);
         sb.append("\t\tUSER: ").append(username);
         return sb.toString();
     }

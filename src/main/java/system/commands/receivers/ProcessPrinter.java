@@ -1,6 +1,7 @@
 package system.commands.receivers;
 
 import model.ProcessInfo;
+import system.Constants;
 import system.Iterator;
 import system.ProcessAggregate;
 import system.factory.creators.IteratorCreator;
@@ -18,11 +19,11 @@ public class ProcessPrinter {
     public void printProcesses() {
         try {
             String line;
-            Process p = Runtime.getRuntime().exec("tasklist");
+            Process p = Runtime.getRuntime().exec(Constants.WINDOWS_TASKLIST);
             BufferedReader input = new BufferedReader(new InputStreamReader(p.getInputStream()));
             int lineI = 0;
             while ((line = input.readLine()) != null) {
-                if (++lineI > 4) {
+                if (++lineI > Constants.WINDOWS_PROCESS_UNNECESSARY_PROCESS_LINE_SIZE) {
                     ProcessAggregate.processList.add(ParseUtils.parseStringToProcess(line));
                 }
             }
@@ -31,8 +32,9 @@ public class ProcessPrinter {
             Iterator iterator = (Iterator) new IteratorCreator().createItem();
 
             while (iterator.hasNext()) {
-                ProcessInfo name = (ProcessInfo) iterator.next();
-                System.out.println(name.getName() + "\t" + name.getPid() + "\t" + name.getSessionName() + "\t" + name.getMemory());
+                ProcessInfo process = (ProcessInfo) iterator.next();
+                System.out.printf("NAME: %s \tPID: %d \tSESSION NAME: %s \tSESSION#: %d \tMEM USAGE: %d K\n",
+                        process.getName(), process.getPid(), process.getSessionName(), process.getSessionNumber(), process.getMemory());
             }
         } catch (IOException e) {
             e.getMessage();

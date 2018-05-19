@@ -11,7 +11,6 @@ import javax.validation.constraints.Positive;
  */
 @NoArgsConstructor @AllArgsConstructor
 @Getter @Setter
-@ToString
 public class ProcessInfo {
 
     @NotBlank
@@ -23,6 +22,21 @@ public class ProcessInfo {
     @NotBlank
     private String sessionName;
 
+    @Min(0)
+    private int sessionNumber;
+
     @Positive
     private long memory;
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("\tIMAGE NAME: ").append(name);
+        sb.append("\t\t\t\tPID: ").append(pid);
+        sb.append("\t\t\tSESSION NAME: ").append(sessionName);
+        sb.append("\t\t\tSESSION#: ").append(sessionNumber);
+        sb.append("\t\t\tMEM USAGE#: ").append(memory).append(" K");
+        return sb.toString();
+    }
+
 }
