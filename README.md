@@ -10,7 +10,19 @@
 
 <hr>
 
-[List of currently available commands](src/main/resources/commands.txt)
+
+
+## Getting Started
+
+To run this project on your local machine for dev and testing purposes firstly build the project and start the rmiregistry. Open the terminal and run :
+```
+cd out\production\classes
+rmiregistry
+```
+Then start the server ```Server.java``` and the client ```Client.java``` that are located in default package.
+The list of commands will be printed on ```Server``` terminal tab because you monitor the local OS.
+
+List of commands - [commands.txt](src/main/resources/commands.txt) 
 
 ## Patterns list
 <p>
@@ -19,7 +31,6 @@
     <li>Factory Method</li>
     <li>Command</li>
     <li>Strategy</li>
-    <li>Bridge</li>
   </ol>
 </p>
 

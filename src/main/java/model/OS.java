@@ -1,7 +1,7 @@
 package model;
 
 import lombok.Getter;
-import system.Constants;
+import app.Constants;
 
 import javax.validation.constraints.NotBlank;
 

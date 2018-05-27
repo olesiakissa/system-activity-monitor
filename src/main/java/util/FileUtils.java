@@ -20,7 +20,7 @@ public class FileUtils {
                     .getResource("commands.txt")).toURI());
             Stream<String> commands = Files.lines(path);
             commands.forEach(c -> {
-                System.out.printf("\t\t\t%s\n", c);
+                System.err.println("\t\t\t" + c);
             });
         } catch (URISyntaxException e) {
             System.out.printf("%s does not exist.", e.getReason());
