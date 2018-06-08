@@ -32,7 +32,8 @@ public class InputAnalyzer {
                 System.err.println("Disconnected from server. Monitoring stopped.");
                 break;
             default:
-                command = new PrintRunningProcessesCommand(new ProcessPrinter());
+                System.err.println("Wrong input.Check available commands: ");
+                command = new PrintAvailableCommandsCommand();
                 command.execute();
                 break;
         }

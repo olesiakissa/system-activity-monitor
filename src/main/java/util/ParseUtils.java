@@ -3,6 +3,9 @@ package util;
 import model.ProcessInfo;
 import org.apache.commons.lang3.StringUtils;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -50,4 +53,30 @@ public class ParseUtils {
         return bytes / (1024.0 * 1024.0);
     }
 
+    /**
+     * @param address InetAddress address of client
+     * @return ip address without username
+     */
+    public static String getClientIPAddress(InetAddress address) {
+        String ipAddress = address.toString();
+        return ipAddress.contains("/") ? ipAddress.substring(ipAddress.indexOf("/") + 1, ipAddress.length()) : "";
+    }
+
+    /**
+     * @param address InetAddress address of client
+     * @return username without ip address
+     */
+    public static String getClientUsername(InetAddress address) {
+        String username = address.toString();
+        return username.contains("/") ? username.substring(0, username.indexOf("/")) : "";
+    }
+
+    /**
+     * @param doubleValue that needs to be formatted to 2 decimal precision
+     * @return formatted double value
+     */
+    public static double truncateDoubleValueUpToTwoDecimal(double doubleValue) {
+        String stringValue = Double.toString(doubleValue);
+        return new BigDecimal(stringValue).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+    }
 }

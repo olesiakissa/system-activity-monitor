@@ -1,7 +1,14 @@
 group 'mpt.edu'
-version '1.1.0'
+version '1.1.1'
 
 apply plugin: 'java'
+apply plugin: 'application'
+
+jar {
+   manifest {
+       attributes('Main-Class': 'Server')
+   }
+}
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -22,16 +29,4 @@ dependencies {
 
 task wrapper(type: Wrapper) {
     gradleVersion = '4.4'
-}
-
-task serverJar(type: Jar) {
-    manifest {
-        attributes('Main-Class': 'Server')
-    }
-}
-
-task clientJar(type: Jar) {
-    manifest {
-        attributes('Main-Class': 'Client')
-    }
 }

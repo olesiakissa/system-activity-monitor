@@ -2,12 +2,12 @@ package app.commands.receivers;
 
 import model.OS;
 
-public class OSIndicator implements Indicator {
+public class OSIndicator {
 
-    @Override
-    public void displayInfo() {
+    public OS displayInfo() {
         OS os = new OS();
         System.out.println(os.toString());
+        return os;
     }
 
 }
