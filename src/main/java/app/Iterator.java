@@ -3,7 +3,7 @@ package app;
 /**
  * An iterator over a collection for accessing and traversing elements.
  */
-public interface Iterator<T> {
+public interface Iterator {
 
     /**
      * @return {@code true} - if the collection has more elements
@@ -13,6 +13,6 @@ public interface Iterator<T> {
     /**
      * @return the next object of collection
      */
-    Object next();
+    <T> T next();
 
 }

@@ -18,7 +18,7 @@ public class ProcessAggregate implements Aggregate {
         return new ProcessIterator();
     }
 
-    private class ProcessIterator implements Iterator<ProcessInfo> {
+    private class ProcessIterator implements Iterator {
 
         int index = 0;
 
@@ -28,6 +28,7 @@ public class ProcessAggregate implements Aggregate {
         }
 
         @Override
+        @SuppressWarnings("unchecked")
         public ProcessInfo next() {
             if (this.hasNext()) {
                 return processList.get(index++);

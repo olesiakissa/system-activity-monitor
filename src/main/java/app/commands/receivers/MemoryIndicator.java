@@ -11,7 +11,7 @@ public class MemoryIndicator {
      * @return The amount of used physical memory in megabytes is used
      * for pushing this value into array of cpu usage in client object.
      */
-    public double displayInfo() {
+    public double getInfo() {
         OperatingSystemMXBean osBean = ManagementFactory.getPlatformMXBean(
                 OperatingSystemMXBean.class);
         double totalPhysicalMemorySize = ParseUtils.bytesToMegabytes(osBean.getTotalPhysicalMemorySize());

@@ -15,7 +15,7 @@ public class GetMemoryUsageCommand implements Command {
 
     @Override
     public void execute() {
-        this.indicator.displayInfo();
+        this.indicator.getInfo();
     }
 
 }

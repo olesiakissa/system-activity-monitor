@@ -10,10 +10,12 @@ public class CPUIndicator {
     /**
      * Displays recent cpu usage in percent for the JVM process in range of [0..100]
      */
-    public double displayInfo() {
+    public double getInfo() {
         OperatingSystemMXBean osBean = ManagementFactory.getPlatformMXBean(
                 OperatingSystemMXBean.class);
-        return ParseUtils.truncateDoubleValueUpToTwoDecimal(osBean.getSystemCpuLoad() * 100);
+        double cpuUsageValue = ParseUtils.truncateDoubleValueUpToTwoDecimal(osBean.getSystemCpuLoad() * 100);
+        System.out.printf("\t%.2f%%\n", cpuUsageValue);
+        return cpuUsageValue;
     }
 
 }

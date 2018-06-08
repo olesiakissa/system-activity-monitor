@@ -15,7 +15,7 @@ public class GetOSInfoCommand implements Command {
 
     @Override
     public void execute() {
-        this.osIndicator.displayInfo();
+        this.osIndicator.getInfo();
     }
 
 }
