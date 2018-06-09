@@ -29,7 +29,19 @@ public final class Constants {
 
     //endregion
 
+    //region TIME units
 
+    public final static long SECOND = 1000L; // 1000ms
+    public final static long MINUTE = 60000L; // 1000*60ms
+    public final static long HOUR = 3600000L; // 1000*60*60 ms
 
+    //endregion
 
+    //region NETWORK
+    
+    public final static int FREE_PORT = 0;
+    public final static int DEFAULT_PORT = 8080;
+    public final static String LOCALHOST = "localhost";
+
+    //endregion
 }

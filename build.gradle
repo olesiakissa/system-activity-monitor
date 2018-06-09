@@ -20,11 +20,12 @@ repositories {
 dependencies {
     compile group: 'org.glassfish', name: 'javax.el', version: '3.0.0'
     compile group: 'org.hibernate', name: 'hibernate-core', version: '5.2.12.Final'
-    compile group: 'org.hibernate', name: 'hibernate-entitymanager', version: '5.2.12.Final'
     compile group: 'org.hibernate', name: 'hibernate-validator', version: '6.0.7.Final'
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.7'
     compile group: 'joda-time', name: 'joda-time', version: '2.9.9'
+    compile group: 'postgresql', name: 'postgresql', version: '9.1-901-1.jdbc4'
     compileOnly 'org.projectlombok:lombok:1.16.18'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
 task wrapper(type: Wrapper) {
