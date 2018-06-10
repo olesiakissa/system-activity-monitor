@@ -71,7 +71,7 @@ public class Client {
         System.out.println("operations executed");
         //Shutting down the client
         Thread.sleep(Constants.SECOND);
-        System.exit(0);
+        Runtime.getRuntime().exit(0);
     }
 
     /**
@@ -82,7 +82,7 @@ public class Client {
      */
     private static void runClientTimer(Timer timer, ClientRunnerTask clientTask) {
         // Feel free to use any constant for setting a period of running the task
-        timer.scheduleAtFixedRate(clientTask, 0, Constants.HOUR);
+        timer.scheduleAtFixedRate(clientTask, 0, Constants.WORKING_DAY_DURATION);
     }
 
     /**

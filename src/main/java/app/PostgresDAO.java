@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.*;
 import java.util.Properties;
-import java.util.UUID;
 
 /**
  * This class provides methods for creating connection to database and making queries.

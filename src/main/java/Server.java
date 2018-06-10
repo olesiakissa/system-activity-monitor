@@ -57,7 +57,7 @@ public class Server implements SystemOperations {
     private static void connectToRmiRegistry() {
         try {
             ClientOperationsProvider serverObject = new ClientInitializer();
-            ClientOperationsProvider operationsStub = (ClientOperationsProvider) UnicastRemoteObject.exportObject(serverObject, Constants.FREE_PORT);
+            ClientOperationsProvider operationsStub = (ClientOperationsProvider) UnicastRemoteObject.exportObject(serverObject, Constants.ANY_FREE_PORT);
             Registry registry = LocateRegistry.getRegistry();
             registry.rebind("sam", operationsStub);
             System.err.println("Server started successfully.");
