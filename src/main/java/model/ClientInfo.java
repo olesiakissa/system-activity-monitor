@@ -7,6 +7,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PositiveOrZero;
 import java.io.Serializable;
+import java.util.UUID;
 
 /**
  * Entity class that contains information about the client which is connected to server.
@@ -17,7 +18,16 @@ import java.io.Serializable;
 public class ClientInfo implements Serializable {
 
     /**
-     * IP of client machine. Serves as client id.
+     * Client's id must be unique for each connection.
+     */
+    private UUID uuid;
+
+    public void setSerialVersionUID() {
+        this.uuid = UUID.randomUUID();
+    }
+
+    /**
+     * IP of client machine.
      */
     @NotBlank
     private String ip;

@@ -2,6 +2,8 @@ package util;
 
 import model.ProcessInfo;
 import org.apache.commons.lang3.StringUtils;
+import org.joda.time.DateTimeZone;
+import org.joda.time.LocalDate;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -78,5 +80,15 @@ public class ParseUtils {
     public static double truncateDoubleValueUpToTwoDecimal(double doubleValue) {
         String stringValue = Double.toString(doubleValue);
         return new BigDecimal(stringValue).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+    }
+
+    /**
+     * @param jodaLocalDate Date that <tt>Joda-Time</tt> library provides.
+     * @return <tt>java.sql.Date</tt> date representation of LocalDate to write in into database.
+     */
+    public static java.sql.Date jodaLocalDateToDate(LocalDate jodaLocalDate) {
+        final DateTimeZone jodaTzUTC = DateTimeZone.forID("UTC");
+        if(jodaLocalDate==null) return null;
+        return new java.sql.Date(jodaLocalDate.toDateTimeAtStartOfDay(jodaTzUTC).getMillis());
     }
 }

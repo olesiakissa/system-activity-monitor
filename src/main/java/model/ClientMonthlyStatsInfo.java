@@ -5,6 +5,7 @@ import lombok.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PositiveOrZero;
+import java.util.UUID;
 
 /**
  * Entity class to get the information from database
@@ -14,6 +15,11 @@ import javax.validation.constraints.PositiveOrZero;
 @Getter @Setter
 @ToString
 public class ClientMonthlyStatsInfo {
+
+    /**
+     * Client's foreign key id.
+     */
+    private UUID client_uuid;
 
     /**
      * IP of client machine. Serves as client id.

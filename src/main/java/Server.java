@@ -1,3 +1,4 @@
+import app.Constants;
 import app.InputAnalyzer;
 import app.commands.Command;
 import app.commands.PrintAvailableCommandsCommand;
@@ -13,7 +14,7 @@ import java.util.Scanner;
  */
 public class Server implements SystemOperations {
 
-    private  Scanner scanner = new Scanner(System.in);
+    private Scanner scanner = new Scanner(System.in);
 
     /**
      * Creates and exports a new UnicastRemoteObject object using an
@@ -24,6 +25,7 @@ public class Server implements SystemOperations {
     Server() throws RemoteException {
     }
 
+    //region sysadmin manual operations
     @Override
     public void analyzeSystem() {
         printAvailableCommands();
@@ -33,7 +35,7 @@ public class Server implements SystemOperations {
             input = scanner.nextLine();
             InputAnalyzer analyzer = new InputAnalyzer();
             analyzer.analyze(input);
-        }  while (!input.equals("q"));
+        } while (!input.equals("q"));
         scanner.reset();
     }
 
@@ -42,13 +44,22 @@ public class Server implements SystemOperations {
         Command command = new PrintAvailableCommandsCommand();
         command.execute();
     }
+    //endregion
+
 
     public static void main(String[] args) {
+        /* To invoke the same methods on the server machine for system administrating
+        just create a separate thread for inputAnalyze() method.
+        */
+        connectToRmiRegistry();
+    }
+
+    private static void connectToRmiRegistry() {
         try {
-            SystemOperations serverObject = new Server();
-            SystemOperations systemOperationsStub = (SystemOperations) UnicastRemoteObject.exportObject(serverObject, 0);
+            ClientOperationsProvider serverObject = new ClientInitializer();
+            ClientOperationsProvider operationsStub = (ClientOperationsProvider) UnicastRemoteObject.exportObject(serverObject, Constants.FREE_PORT);
             Registry registry = LocateRegistry.getRegistry();
-            registry.rebind("sam", systemOperationsStub);
+            registry.rebind("sam", operationsStub);
             System.err.println("Server started successfully.");
         } catch (RemoteException e) {
             System.err.println("Server exception: " + e.getMessage());
