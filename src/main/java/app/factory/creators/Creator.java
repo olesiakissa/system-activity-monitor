@@ -5,6 +5,6 @@ package app.factory.creators;
  */
 public interface Creator {
 
-    Object createItem();
+    <T> T createItem();
 
 }

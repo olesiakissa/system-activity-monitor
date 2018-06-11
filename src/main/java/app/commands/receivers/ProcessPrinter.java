@@ -32,7 +32,7 @@ public class ProcessPrinter {
             Iterator iterator = (Iterator) new IteratorCreator().createItem();
 
             while (iterator.hasNext()) {
-                ProcessInfo process = (ProcessInfo) iterator.next();
+                ProcessInfo process = iterator.next();
                 System.out.printf("NAME: %s \tPID: %d \tSESSION NAME: %s \tSESSION#: %d \tMEM USAGE: %d K\n",
                         process.getName(), process.getPid(), process.getSessionName(), process.getSessionNumber(), process.getMemory());
             }
