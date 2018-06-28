@@ -2,6 +2,7 @@
 .gradle
 /build/
 /out/
+/lib/
 
 # Ignore configuration file
 config.properties

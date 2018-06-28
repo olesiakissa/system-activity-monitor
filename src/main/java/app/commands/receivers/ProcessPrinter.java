@@ -24,12 +24,12 @@ public class ProcessPrinter {
             int lineI = 0;
             while ((line = input.readLine()) != null) {
                 if (++lineI > Constants.WINDOWS_PROCESS_UNNECESSARY_PROCESS_LINE_SIZE) {
-                    ProcessAggregate.processList.add(ParseUtils.parseStringToProcess(line));
+                    ProcessAggregate.addProcessToList(ParseUtils.parseStringToProcess(line));
                 }
             }
             input.close();
 
-            Iterator iterator = (Iterator) new IteratorCreator().createItem();
+            Iterator iterator = new IteratorCreator().createItem();
 
             while (iterator.hasNext()) {
                 ProcessInfo process = iterator.next();
