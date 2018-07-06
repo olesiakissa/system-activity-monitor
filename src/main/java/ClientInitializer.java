@@ -1,4 +1,5 @@
-import app.PostgresDAO;
+import app.DatabaseConnector;
+import app.PostgresConnector;
 import app.commands.receivers.CPUIndicator;
 import app.commands.receivers.MemoryIndicator;
 import model.ClientInfo;
@@ -36,7 +37,7 @@ public class ClientInitializer implements ClientOperationsProvider {
 
     @Override
     public void saveClientToDatabase(ClientInfo client)  {
-        PostgresDAO daoObject = new PostgresDAO();
+        DatabaseConnector daoObject = new PostgresConnector();
         daoObject.insertClient(client);
         System.err.println("Client was written to database.");
     }

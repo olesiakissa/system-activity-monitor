@@ -65,10 +65,8 @@ public class Client {
         runClientTimer(new Timer("ClientTimer"), new ClientRunnerTask(operationsStub));
         Thread.sleep(Constants.SECOND * 5);
         initializeClient(operationsStub, inetAddress);
-        Thread.sleep(Constants.SECOND);
+        Thread.sleep(Constants.SECOND * 5);
         saveClientDailyStats(client, operationsStub);
-
-        System.out.println("operations executed");
         //Shutting down the client
         Thread.sleep(Constants.SECOND);
         Runtime.getRuntime().exit(0);
@@ -97,7 +95,7 @@ public class Client {
 
         @Override
         public void run() {
-            while (clientTaskExecutionTimesCounter != WORKING_HOURS) {
+            while (clientTaskExecutionTimesCounter < WORKING_HOURS) {
                 try {
                     cpuPercentageUsageArrayList.add(operations.getClientCpuUsage());
                     memoryUsageArrayList.add(operations.getClientMemoryUsage());
