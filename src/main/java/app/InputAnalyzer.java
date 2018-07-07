@@ -8,24 +8,29 @@ import app.commands.receivers.*;
  */
 public class InputAnalyzer {
     private Command command;
+    private DatabaseConnector dao = new PostgresConnector();
 
     public void analyze(String input) {
 
         switch (input) {
-            case "pr -all":
+            case "pr -a":
                 command = new PrintRunningProcessesCommand(new ProcessPrinter());
                 command.execute();
                 break;
-            case "-os":
+            case "os":
                 command = new GetOSInfoCommand(new OSIndicator());
                 command.execute();
                 break;
-            case "-cpu":
+            case "cpu":
                 command = new GetCpuUsageCommand(new CPUIndicator());
                 command.execute();
                 break;
-            case "-mem":
+            case "mem":
                 command = new GetMemoryUsageCommand(new MemoryIndicator());
+                command.execute();
+                break;
+            case "show cl":
+                command = new ShowMonthlyClientsCommand(dao);
                 command.execute();
                 break;
             case "q":

@@ -1,5 +1,6 @@
-pr -all
--os
--cpu
--mem
+pr -a
+os
+cpu
+mem
+show cl
 q
