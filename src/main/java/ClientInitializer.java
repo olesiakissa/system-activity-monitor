@@ -1,5 +1,5 @@
-import app.DatabaseConnector;
-import app.PostgresConnector;
+import app.daolevel.DatabaseConnector;
+import app.daolevel.PostgresConnector;
 import app.commands.receivers.CPUIndicator;
 import app.commands.receivers.MemoryIndicator;
 import model.ClientInfo;

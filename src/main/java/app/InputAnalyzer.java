@@ -2,6 +2,8 @@ package app;
 
 import app.commands.*;
 import app.commands.receivers.*;
+import app.daolevel.DatabaseConnector;
+import app.daolevel.PostgresConnector;
 
 /**
  * Invoker class for commands.
@@ -31,6 +33,10 @@ public class InputAnalyzer {
                 break;
             case "show cl":
                 command = new ShowMonthlyClientsCommand(dao);
+                command.execute();
+                break;
+            case "save st":
+                command = new SaveMonthlyCpuAndMemoryUsageCommand(dao);
                 command.execute();
                 break;
             case "q":

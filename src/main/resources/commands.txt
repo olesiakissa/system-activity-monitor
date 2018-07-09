@@ -3,4 +3,5 @@ os
 cpu
 mem
 show cl
+save st
 q

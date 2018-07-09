@@ -1,6 +1,6 @@
 package app.commands;
 
-import app.DatabaseConnector;
+import app.daolevel.DatabaseConnector;
 
 /**
  * Command for printing the list of clients (list of their IP addresses) within network per month.
