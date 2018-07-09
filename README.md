@@ -10,8 +10,6 @@
 
 <hr>
 
-
-
 ## Getting Started
 
 To run this project on your local machine for dev and testing purposes firstly build the project and start the rmiregistry. Open the terminal and run :
@@ -22,23 +20,17 @@ rmiregistry
 Then start the server ```Server.java``` and the client ```Client.java``` that are located in default package.
 The list of commands will be printed on ```Server``` terminal tab because you monitor the local OS.
 
-List of commands - [commands.txt](src/main/resources/commands.txt) 
+List of currently available commands - [commands.txt](src/main/resources/commands.txt) 
 
-## Patterns list
-<p>
+## Commands description
+  <pre>  
   <ol>
-    <li>Iterator</li>
-    <li>Factory Method</li>
-    <li>Command</li>
-    <li>Strategy</li>
-  </ol>
-</p>
-
-### Strategy Creator hierarchy 
-![packagecreators](https://user-images.githubusercontent.com/15348166/39965747-bafd9182-56a7-11e8-8e59-0ea5a39b0a03.png)
-
-### Implemented commands
-![packagecommands](https://user-images.githubusercontent.com/15348166/39965588-b243ac32-56a4-11e8-948b-2721bfe36237.png)
-
-### Command Receiver hierarchy 
-![packagereceivers](https://user-images.githubusercontent.com/15348166/39965717-037ee236-56a7-11e8-8741-b570bac6abbe.png)
+    <li><p><strong>pr -a</strong>   | prints out the list of currently available commands.</p></li> 
+    <li><p><strong>os</strong>      | prints out the information about OS architecture.</p></li> 
+    <li><p><strong>cpu</strong>     | prints out cpu recent usage (might print out 0.0% when is first being invoked).</p></li> 
+    <li><p><strong>mem</strong>     | prints out information about the usage of physical and virtual memory.</p></li> 
+    <li><p><strong>show cl</strong> | prints out the list of clients (list of their IP addresses) within network per month.</p></li> 
+    <li><p><strong>save st</strong> | saves the values of memory and cpu usage into database for all clients per month.</p></li> 
+    <li><p><strong>q</strong>       | exits the application.</p></li> 
+  </ol>  
+</pre>
